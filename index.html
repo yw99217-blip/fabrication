@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yashraj Fabrication — profetional & Fabrication & Welding Services</title>
+  <meta name="description" content="Yashraj Fabrication — Precision fabrication, welding, gates, windows, safety doors, sheds and custom steel projects." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ---------------------------
+       animations.css + style.css + responsive.css combined
+       Clean, production-ready styles (embedded for single-file use)
+       --------------------------- */
+    :root{
+      --bg:#ffffff;
+      --charcoal:#1F2937;
+      --black:#000;
+      --steel:#9ca3af;
+      --accent:#F97316;
+      --muted:#6B7280;
+      --glass: rgba(255,255,255,0.06);
+      --radius:10px;
+      --max-width:1200px;
+      --container-padding:1.25rem;
+      --transition:250ms cubic-bezier(.2,.9,.3,1);
+      --shadow: 0 8px 24px rgba(15,23,39,0.12);
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--charcoal);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      font-size:16px;
+    }
+    /* Utilities */
+    .container{max-width:var(--max-width);margin:0 auto;padding:1rem;}
+    #scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),#ff9a4c);width:0;z-index:120}
+    /* Header */
+    .site-header{
+      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));
+      position:sticky;top:0;z-index:60;backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(15,23,39,0.04);
+    }
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:var(--max-width);margin:0 auto;padding:0.75rem 1rem;}
+    .brand{display:flex;align-items:center;gap:0.65rem;text-decoration:none;color:var(--charcoal)}
+    .brand .logo.jpg{border-radius:8px;box-shadow:var(--shadow)}
+    .brand-text{display:flex;flex-direction:column;font-weight:600;line-height:1}
+    .brand-text strong{font-size:0.95rem}
+    .brand-text span{font-size:0.72rem;color:var(--muted);font-weight:600}
+
+    /* Nav */
+    .nav{flex:1;margin-left:1.25rem}
+    .nav-list{list-style:none;display:flex;gap:0.75rem;align-items:center;margin:0;padding:0}
+    .nav-link{color:var(--charcoal);text-decoration:none;padding:0.5rem 0.75rem;border-radius:8px;transition:var(--transition);font-weight:600}
+    .nav-link:hover,.nav-link.active{background:var(--glass);color:var(--charcoal);box-shadow: none}
+
+    /* Header CTA */
+    .header-cta{display:flex;align-items:center;gap:0.75rem}
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 0.9rem;border-radius:10px;border:1px solid transparent;text-decoration:none;font-weight:700;cursor:pointer}
+    .btn-primary{background:var(--charcoal);color:#fff}
+    .btn-outline{background:transparent;border:1px solid rgba(31,41,55,0.08);color:var(--charcoal)}
+    .btn-accent{background:linear-gradient(90deg,var(--accent),#ff9a4c);color:#fff;box-shadow:0 6px 22px rgba(249,115,22,0.14)}
+    .btn-sm{padding:0.45rem 0.7rem;font-size:0.9rem}
+
+    /* Mobile toggle */
+    .mobile-toggle{display:none;background:transparent;border:0;padding:0.4rem;border-radius:8px}
+    .hamburger{display:inline-block;width:24px;height:2px;background:var(--charcoal);position:relative}
+    .hamburger::before,.hamburger::after{content:"";position:absolute;left:0;width:24px;height:2px;background:var(--charcoal)}
+    .hamburger::before{top:-7px}
+    .hamburger::after{top:7px}
+
+    /* Hero */
+    .hero{min-height:72vh;display:flex;align-items:center;color:#fff;background-size:cover;background-position:center;padding:3.5rem 0;position:relative}
+    .hero-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;max-width:var(--max-width);margin:0 auto;padding:1rem}
+    .hero-content{max-width:720px}
+    .hero h1{font-size:2.6rem;margin:0 0 0.5rem;font-weight:800;letter-spacing:-0.01em}
+    .subtitle{font-weight:600;opacity:0.95}
+    .lead{margin-top:0.75rem;color:rgba(255,255,255,0.93);max-width:680px}
+    .hero-actions{margin-top:1.25rem;display:flex;gap:0.75rem;flex-wrap:wrap}
+    .scroll-down{position:absolute;right:1.5rem;bottom:1.25rem;display:flex;flex-direction:column;align-items:center;color:#fff;text-decoration:none;opacity:0.9}
+    .mouse{width:28px;height:46px;border-radius:20px;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:flex-start;justify-content:center;padding-top:6px}
+    .wheel{width:4px;height:8px;background:#fff;border-radius:2px;animation:wheel 1.6s infinite}
+
+    /* About */
+    .section{padding:3rem 0}
+    .section-header{text-align:center;margin-bottom:1.25rem}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:center}
+    .about-image img{width:65%;border-radius:var(--radius);object-fit:cover;box-shadow:var(--shadow)}
+    .about-content h2{margin-top:0}
+    .highlights{display:grid;grid-template-columns:repeat(2,1fr);gap:0.5rem;margin-top:1rem}
+    .highlight{display:flex;gap:0.6rem;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));padding:0.6rem;border-radius:8px;border:1px solid rgba(15,23,39,0.04);font-weight:600;color:var(--charcoal)}
+
+    /* Services grid */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+    .service-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:transform var(--transition);display:flex;flex-direction:column}
+    .service-card:hover{transform:translateY(-6px)}
+    .service-media{position:relative;height:180px;overflow:hidden}
+    .service-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 400ms}
+    .service-card:hover .service-media img{transform:scale(1.06)}
+    .service-icon{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,0.6);color:#fff;padding:0.6rem;border-radius:8px}
+    .service-body{padding:1rem}
+    .service-body h3{margin:0 0 0.5rem}
+
+    /* Services full-list */
+    .services-list{display:flex;flex-direction:column;gap:1.25rem}
+    .service-full{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:center;background:#fff;padding:0;border-radius:10px;box-shadow:var(--shadow);overflow:hidden}
+    .service-left img{width:50%;height:50%;object-fit:cover;display:block}
+    .service-right{padding:1rem}
+
+    /* Why grid & others */
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem}
+    .why-card{background:linear-gradient(180deg, #fff, #fbfbfb);border-radius:10px;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+    .why-card i{font-size:1.45rem;color:var(--accent);margin-bottom:0.5rem}
+
+    /* Gallery grid */
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1rem}
+    .gallery-item{position:relative;overflow:hidden;border-radius:10px;cursor:pointer}
+    .gallery-item img{display:block;width:100%;height:220px;object-fit:cover;transition:transform 420ms}
+    .gallery-item:hover img{transform:scale(1.08)}
+    .gallery-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:0.6rem;background:linear-gradient(180deg, transparent, rgba(0,0,0,0.55));color:#fff;font-weight:600}
+
+    /* Process */
+    .process-steps{display:flex;flex-direction:column;gap:0.5rem;align-items:center;padding:0;margin:0;list-style:none}
+    .process-steps li{display:flex;align-items:center;gap:1rem;background:linear-gradient(180deg,#fff,#fbfbfb);padding:0.6rem 1rem;border-radius:8px;width:100%;max-width:720px;justify-content:space-between}
+    .step-num{background:var(--accent);color:#fff;padding:0.45rem 0.6rem;border-radius:8px;font-weight:800}
+
+    /* Testimonials & stats */
+    .split{display:grid;grid-template-columns:1.1fr 0.9fr;gap:1rem;align-items:start}
+    .test-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+    .test-card{background:#fff;border-radius:10px;padding:1rem;box-shadow:var(--shadow)}
+    .test-head{display:flex;gap:0.8rem;align-items:center}
+    .test-head img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+    .stars{color:#ffb84d}
+
+    .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .stat{background:#fff;padding:1.1rem;border-radius:10px;text-align:center;box-shadow:var(--shadow)}
+    .stat-num{font-size:1.8rem;font-weight:800;color:var(--accent)}
+
+    /* CTA */
+    .cta-section{padding:2.5rem 0;color:#fff;text-align:center;border-radius:12px;margin:1.25rem 0}
+    .cta-inner{max-width:920px;margin:0 auto;}
+
+    /* Footer */
+    .site-footer{background:#0b1220;color:#e6eef7;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.03)}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1rem}
+    .footer-brand .brand{align-items:center}
+    .footer-links ul{list-style:none;padding:0;margin:0}
+    .footer-links a{color:inherit;text-decoration:none;display:block;padding:0.2rem 0}
+    .footer-bottom{display:flex;justify-content:space-between;padding-top:1.25rem;font-size:0.9rem;color:rgba(255,255,255,0.7)}
+
+    /* Lightbox */
+    .lightbox{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.85);z-index:200;opacity:0;pointer-events:none;transition:opacity 220ms}
+    .lightbox.show{opacity:1;pointer-events:auto}
+    .lightbox .lb-image{max-width:90%;max-height:80%;border-radius:8px;box-shadow:0 18px 60px rgba(0,0,0,0.6)}
+    .lb-close{position:absolute;top:2rem;right:2rem;background:transparent;border:0;color:#fff;font-size:2rem}
+    .lb-prev, .lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.35);border:0;color:#fff;padding:0.8rem;border-radius:8px}
+    .lb-prev{left:2rem}
+    .lb-next{right:2rem}
+
+    /* animations */
+    @keyframes wheel{0%{transform:translateY(0);opacity:1}50%{transform:translateY(6px);opacity:0.7}100%{transform:translateY(0);opacity:1}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+    @keyframes fadeLeft{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+    @keyframes fadeRight{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+    @keyframes zoomIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+
+    [data-animate="fade-up"]{animation:fadeUp 700ms both}
+    [data-animate="fade-left"]{animation:fadeLeft 700ms both}
+    [data-animate="fade-right"]{animation:fadeRight 700ms both}
+    [data-animate="zoom-in"]{animation:zoomIn 700ms both}
+
+    /* Button ripple */
+    .ripple{position:relative;overflow:hidden}
+    .ripple:after{content:"";position:absolute;width:10px;height:10px;display:block;border-radius:50%;background:rgba(255,255,255,0.25);opacity:0;transform:scale(1);pointer-events:none;transition:opacity 400ms, transform 600ms}
+    .ripple:active:after{opacity:1;transform:scale(40);transition:0s}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .why-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .split{grid-template-columns:1fr}
+      .about-grid{grid-template-columns:1fr}
+      .header-inner{padding:0.6rem 0.9rem}
+      .service-full{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .nav{display:none}
+      .mobile-toggle{display:inline-block}
+      .site-header{padding:0.4rem 0}
+      .services-grid{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:1fr}
+      .why-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .brand-text strong{font-size:0.9rem}
+      .hero h1{font-size:1.6rem}
+      .lead{font-size:0.95rem}
+    }
+    .nav.mobile-open{position:absolute;left:0;right:0;top:66px;background:rgba(255,255,255,0.98);padding:1rem;border-bottom:1px solid rgba(15,23,39,0.04)}
+    .nav.mobile-open .nav-list{flex-direction:column;gap:0.25rem}
+
+    /* small UI misc */
+    #back-to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:8px;background:#111827;color:#fff;display:flex;align-items:center;justify-content:center;border:0;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 220ms;z-index:150}
+    #back-to-top.show{opacity:1;pointer-events:auto}
+    .center{text-align:center}
+  </style>
+</head>
+<body>
+  <!-- Scroll progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Yashraj Fabrication home">
+        <!-- Inline SVG logo.jpg -->
+        <svg class="logo.jpg" width="51" height="51" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="false">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#b6c1c6"/>
+              <stop offset="1" stop-color="#6b7176"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 6 L86 20 L86 52 C86 72 68 88 50 94 C32 88 14 72 14 52 L14 20 Z" fill="url(#g1)" stroke="#111827" stroke-width="2" />
+          <rect x="40" y="34" width="6" height="36" rx="2" transform="rotate(-22 43 52)" fill="#111827" />
+          <g fill="#F97316" transform="translate(62,18)"><path d="M0 0 L6 10 L2 6 L-2 10 Z"/></g>
+          <g fill="#0f1724" transform="translate(24,36)"><path d="M0 0 L8 0 L20 28 L16 28 L8 8 L0 28 L-4 28 Z" /><path d="M30 0 L46 0 L46 6 L36 6 L36 28 L30 28 Z" /></g>
+        </svg>
+        <span class="brand-text"><strong>YASHRAJ</strong><span>FABRICATION</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <a href="admin.html" class="admin-btn" style="margin-left:8px;display:inline-flex;align-items:center;color:var(--charcoal);text-decoration:none">
+            <i class="fas fa-user-shield" style="margin-right:6px"></i> Admin Login
+          </a>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="tel:+911234567890" class="btn btn-primary call-btn"><i class="fas fa-phone"></i> Call Now</a>
+        <button id="mobile-toggle" class="mobile-toggle" aria-expanded="false" aria-label="Open menu"><span class="hamburger"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main id="home">
+    <!-- Hero -->
+    <section class="hero" style="background-image: linear-gradient(rgba(15,23,39,0.55), rgba(15,23,39,0.55)), url('images/hero.jpg');">
+      <div class="container hero-inner">
+        <div class="hero-content" data-animate="fade-up">
+          <h1>Yashraj Fabrication</h1>
+          <p class="subtitle">Professional Fabrication & Welding Services</p>
+          <p class="lead">We provide high-quality fabrication work for homes, industries, commercial buildings, and custom steel projects with precision, durability, and expert craftsmanship.</p>
+          <div class="hero-actions">
+            <a class="btn btn-accent ripple" href="#contact">Get Free Quote</a>
+            <a class="btn btn-outline" href="tel:+911234567890"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+        </div>
+        <a class="scroll-down" href="#about" aria-label="Scroll to About">
+          <span class="mouse"><span class="wheel"></span></span>
+          <small>Scroll Down</small>
+        </a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about-section container">
+      <div class="about-grid">
+        <div class="about-image" data-animate="fade-right"><img src="img/looogo.png" width="300" height="400" viewBox="0 0 100 100" alt="About Yashraj Fabrication"></div>
+        <div class="about-content" data-animate="fade-left">
+          <h2>About Yashraj Fabrication</h2>
+          <p>Yashraj Fabrication specializes in all types of fabrication work, including welding, safety doors, gates, windows, industrial sheds, railings, grills, and customized steel structures. Our commitment is to deliver durable, high-quality products with timely service and customer satisfaction.</p>
+          <div class="highlights">
+            <div class="highlight"><i class="fas fa-check-circle"></i> Experienced Worker</div>
+            <div class="highlight"><i class="fas fa-industry"></i> Quality Materials</div>
+            <div class="highlight"><i class="fas fa-wallet"></i> Affordable Pricing</div>
+            <div class="highlight"><i class="fas fa-truck"></i> On-Time Delivery</div>
+            <div class="highlight"><i class="fas fa-cogs"></i> New design </div>
+            <div class="highlight"><i class="fas fa-star"></i> Trusted Service</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services preview -->
+    <section id="services" class="section services-preview container">
+      <header class="section-header" data-animate="fade-up">
+        <h2>Our Services</h2>
+        <p>Comprehensive fabrication and welding services for residential, commercial and industrial clients.</p>
+      </header>
+
+      <div class="services-grid" data-animate="fade-up">
+        <article class="service-card">
+          <div class="service-media"><img src="img/welding work.jpeg" alt="Welding Work"><div class="service-icon"><i class="fas fa-fire"></i></div></div>
+          <div class="service-body"><h3>Welding Work</h3><p>Professional welding services plus best repair services.</p><a class="btn btn-sm" href="#welding">Read More</a></div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-media"><img src="img/window.jpeg" alt="Window Fabrication"><div class="service-icon"><i class="fas fa-window-restore"></i></div></div>
+          <div class="service-body"><h3>Window Fabrication</h3><p>Custom iron windows, sliding grill and designer windows for homes and industry.</p><a class="btn btn-sm" href="#windows">Read More</a></div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-media"><img src="img/gate.jpeg" alt="Gate Fabrication"><div class="service-icon"><i class="fas fa-gate"></i></div></div>
+          <div class="service-body"><h3>Gate Fabrication</h3><p>Main gates, sliding gates and decorative gates with durable finishes.</p><a class="btn btn-sm" href="#gates">Read More</a></div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-media"><img src="img/safety door.jpeg" alt="Safety Door Fabrication"><div class="service-icon"><i class="fas fa-door-closed"></i></div></div>
+          <div class="service-body"><h3>Safety Door Fabrication</h3><p>Premium steel safety doors with modern designs and secure locking systems.</p><a class="btn btn-sm" href="#safety-doors">Read More</a></div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-media"><img src="img/shed (2).jpeg" alt="Shed Fabrication"><div class="service-icon"><i class="fas fa-warehouse"></i></div></div>
+          <div class="service-body"><h3>Shed Fabrication</h3><p>Industrial and commercial sheds, roofing structures and warehouse solutions.</p><a class="btn btn-sm" href="#sheds">Read More</a></div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-media"><img src="img/grill railling.jpeg" alt="Grill & Railing"><div class="service-icon"><i class="fas fa-hands-helping"></i></div></div>
+          <div class="service-body"><h3>Grill & Railing Fabrication</h3><p>Balcony railings, stair railings, MS/SS railings and designer grills.</p><a class="btn btn-sm" href="#railings">Read More</a></div>
+        </article>
+      </div>
+
+      <div class="center" style="margin-top:1.25rem;"><a class="btn btn-outline" href="#servicesFull">View All Services</a></div>
+    </section>
+
+    <!-- Services full detail -->
+    <section id="servicesFull" class="section container">
+      <header class="section-header"><h2>Full Services</h2></header>
+      <div class="services-list">
+        <article id="welding" class="service-full">
+          <div class="service-left"><img src="img/welding work (2).jpeg" alt="Welding"></div>
+          <div class="service-right"><h3>Welding Work</h3><p>Professional Arc Welding, MIG Welding, TIG Welding, Gas Welding, Stainless Steel Welding, and Repair Work.</p><ul><li>Site & shop welding</li><li>Stainless steel works and polishing</li><li>Structural welding repairs</li></ul><a class="btn btn-accent" href="#contact">Request a Quote</a></div>
+        </article>
+
+        <article id="windows" class="service-full">
+          <div class="service-left"><img src="img/window (2).jpeg" alt="Windows"></div>
+          <div class="service-right"><h3>Window Fabrication</h3><p>Custom Steel Windows, Sliding Windows, Grill Windows, Designer Windows, and Industrial Windows.</p><a class="btn btn-accent" href="#contact">Request a Quote</a></div>
+        </article>
+
+        <article id="gates" class="service-full">
+          <div class="service-left"><img src="img/gate (2).jpeg" alt="Gates"></div>
+          <div class="service-right"><h3>Gate Fabrication</h3><p>Main Gates, Sliding Gates, Decorative Gates, Industrial Gates, Farm Gates, and Customized Steel Gates.</p><a class="btn btn-accent" href="#contact">Request a Quote</a></div>
+        </article>
+
+        <article id="safety-doors" class="service-full">
+          <div class="service-left"><img src="img/safety door (2).jpeg"  alt="Safety Doors"></div>
+          <div class="service-right"><h3>Safety Door Fabrication</h3><p>Premium Steel Safety Doors with modern designs, security locks, powder coating, and weather-resistant finish.</p><a class="btn btn-accent" href="#contact">Request a Quote</a></div>
+        </article>
+
+        <article id="sheds" class="service-full">
+          <div class="service-left"><img src="img/shed (3).jpeg" alt="Sheds"></div>
+          <div class="service-right"><h3>Shed Fabrication</h3><p>Industrial Sheds, Factory Sheds, Warehouse Sheds, Parking Sheds, Roofing Structures, and Commercial Shed Fabrication.</p><a class="btn btn-accent" href="#contact">Request a Quote</a></div>
+        </article>
+
+        <article id="railings" class="service-full">
+          <div class="service-left"><img src="img/grill.jpeg" alt="Railings"></div>
+          <div class="service-right"><h3>Grill & Railing Fabrication</h3><p>Balcony Railings, Window Grills, Stair Railings, MS Railings, SS Railings, Designer Railings.</p><a class="btn btn-accent" href="#contact">Request a Quote</a></div>
+        </article>
+
+        <article id="custom" class="service-full">
+          <div class="service-left"><img src="img/gril railling.jpeg" alt="Custom Fabrication"></div>
+          <div class="service-right"><h3>Custom Fabrication</h3><p>Customized Steel Structures, Furniture Frames, Machine Platforms, Industrial Fabrication and Heavy Fabrication.</p><a class="btn btn-accent" href="#contact">Request a Quote</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section why-section container" data-animate="fade-up">
+      <header class="section-header">
+        <h2>Why Choose Us</h2>
+        <p>We combine experience, machinery, and customer-first processes to deliver outstanding fabrication work.</p>
+      </header>
+      <div class="why-grid">
+        <div class="why-card"><i class="fas fa-user-hard-hat"></i><h4>Experienced Fabricators</h4></div>
+        <div class="why-card"><i class="fas fa-boxes-stacked"></i><h4>High Quality Materials</h4></div>
+        <div class="why-card"><i class="fas fa-tag"></i><h4>Affordable Price</h4></div>
+        <div class="why-card"><i class="fas fa-calendar-check"></i><h4>On-Time installetion</h4></div>
+        <div class="why-card"><i class="fas fa-cogs"></i><h4>Latest Machinery</h4></div>
+        <div class="why-card"><i class="fas fa-thumbs-up"></i><h4>100% Customer Satisfaction</h4></div>
+        <div class="why-card"><i class="fas fa-headset"></i><h4>24×7 Support</h4></div>
+        <div class="why-card"><i class="fas fa-map-marker-alt"></i><h4>Free Site Visit</h4></div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section gallery-preview container" data-animate="fade-up">
+      <header class="section-header"><h2>Project Gallery</h2><p>Recent works — hover to zoom and click to view full image.</p></header>
+
+      <div class="gallery-controls">
+        <div class="filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="welding">Welding</button>
+          <button class="filter" data-filter="windows">Windows</button>
+          <button class="filter" data-filter="gates">Gates</button>
+          <button class="filter" data-filter="doors">Safety Doors</button>
+          <button class="filter" data-filter="sheds">Sheds</button>
+          <button class="filter" data-filter="railings">Railings</button>
+        </div>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <figure class="gallery-item" data-category="welding"><img src="img/coustom.jpeg" alt="Welding project"><figcaption>Arc Welding — Industrial</figcaption></figure>
+        <figure class="gallery-item" data-category="windows"><img src="img/grill photo (4).jpg" alt="Window fabrication"><figcaption>Steel Window — Designer</figcaption></figure>
+        <figure class="gallery-item" data-category="gates"><img src="img/geat.jpg" alt="Gate fabrication"><figcaption>Main Gate — Custom</figcaption></figure>
+        <figure class="gallery-item" data-category="doors"><img src="img/safety door.jpeg" alt="Safety door"><figcaption>Safety Door — Secure</figcaption></figure>
+        <figure class="gallery-item" data-category="sheds"><img src="img/shed.jpeg" alt="Industrial shed"><figcaption>Warehouse Shed</figcaption></figure>
+        <figure class="gallery-item" data-category="railings"><img src="img/grill photo (4).jpg" alt="Railing"><figcaption>Balcony Railing — SS</figcaption></figure>
+        <figure class="gallery-item" data-category="welding"><img src="img/welding rod.png" alt="Welding"><figcaption>Arc Welding — Repair</figcaption></figure>
+        <figure class="gallery-item" data-category="gates"><img src="img/gata.jpeg" alt="Decorative gate"><figcaption>Decorative Gate — Custom</figcaption></figure>
+      </div>
+
+      <!-- Lightbox -->
+      <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+        <button class="lb-close" aria-label="Close">×</button>
+        <img class="lb-image" src="" alt="">
+        <div class="lb-caption"></div>
+        <button class="lb-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="lb-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section process-section container" data-animate="fade-up">
+      <header class="section-header"><h2>Work Process</h2><p>Simple, transparent, and efficient steps from site visit to installation.</p></header>
+      <ol class="process-steps">
+        <li><span class="step-num">1</span><strong>Site Visit</strong><span class="arrow">↓</span></li>
+        <li><span class="step-num">2</span><strong>Measurement</strong><span class="arrow">↓</span></li>
+        <li><span class="step-num">3</span><strong>Design</strong><span class="arrow">↓</span></li>
+        <li><span class="step-num">4</span><strong>Fabrication</strong><span class="arrow">↓</span></li>
+        <li><span class="step-num">5</span><strong>Installation</strong><span class="arrow">100%</span></li>
+      </ol>
+    </section>
+
+    <!-- Testimonials & Stats -->
+    <section class="section split container">
+      <div class="testimonials" data-animate="fade-right">
+        <h3>What Clients Say</h3>
+        <div class="test-grid">
+          <div class="test-card"><div class="test-head"><img src="img/loogo.png" alt="client"><div><strong>Ravi K.</strong><div class="stars">★★★★★</div></div></div><p>Excellent workmanship and timely installation. Strongly recommended for custom gates and doors.</p></div>
+          <div class="test-card"><div class="test-head"><img src="images/logo.jpg" alt="client"><div><strong>Sunita P.</strong><div class="stars">★★★★★</div></div></div><p>Professional team and reasonable pricing. They handled our factory shed with precision.</p></div>
+          <div class="test-card"><div class="test-head"><img src="images/logo.jpg" alt="client"><div><strong>Arjun S.</strong><div class="stars">★★★★★</div></div></div><p>Great to work with — modern equipment and high-quality finish on railings and windows.</p></div>
+        </div>
+      </div>
+
+      <div class="stats" data-animate="fade-left">
+        <h3>Our Numbers</h3>
+        <div class="stats-grid">
+          <div class="stat"><div class="stat-num" data-target="500">0</div><div class="stat-label">Projects Completed</div></div>
+          <div class="stat"><div class="stat-num" data-target="350">0</div><div class="stat-label">Happy Clients</div></div>
+          <div class="stat"><div class="stat-num" data-target="10">0</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat"><div class="stat-num" data-target="100">0</div><div class="stat-label">Quality (%)</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" style="background: linear-gradient(rgba(15,23,39,0.6), rgba(15,23,39,0.6)), url('images/hero.jpg') center/cover no-repeat;">
+      <div class="container cta-inner" data-animate="zoom-in">
+        <h2>Need Professional Fabrication Services?</h2>
+        <p>Contact us today for a free site visit and a no-obligation quote.</p>
+        <div class="cta-actions">
+          <a class="btn btn-accent" href="tel:+911234567890">Call Now</a>
+          <a class="btn btn-outline" href="#contact">Request Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section container">
+      <header class="section-header"><h2>Contact Us</h2><p>Get in touch for quotes, site visits, and custom projects.</p></header>
+      <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start;">
+        <div class="contact-map" aria-hidden="false" style="border-radius:10px;overflow:hidden;background:#f3f4f6;display:flex;align-items:center;justify-content:center;padding:2rem">
+          <div style="text-align:center;color:var(--muted)"><i class="fas fa-map-marker-alt" style="font-size:2.2rem;color:var(--accent)"></i><p style="margin:0.5rem 0 0;font-weight:700">Google Map Placeholder</p><small>Replace with your Google Maps iframe.</small></div>
+        </div>
+
+        <div class="contact-form" id="quote" data-animate="fade-left" style="background:#fff;padding:1rem;border-radius:10px;box-shadow:var(--shadow)">
+          <h2>Request a Quote / Contact</h2>
+          <form id="contactForm" novalidate>
+            <div class="form-row"><label for="name">Name</label><input id="name" name="name" required type="text" placeholder="Your full name" style="width:100%;padding:0.6rem;border-radius:8px;border:1px solid #e6e9ef;margin-top:0.35rem"></div>
+            <div class="form-row" style="margin-top:0.6rem"><label for="phone">Phone</label><input id="phone" name="phone" required type="tel" placeholder="+91 12345 67890" style="width:100%;padding:0.6rem;border-radius:8px;border:1px solid #e6e9ef;margin-top:0.35rem"></div>
+            <div class="form-row" style="margin-top:0.6rem"><label for="email">Email</label><input id="email" name="email" required type="email" placeholder="you@example.com" style="width:100%;padding:0.6rem;border-radius:8px;border:1px solid #e6e9ef;margin-top:0.35rem"></div>
+            <div class="form-row" style="margin-top:0.6rem"><label for="service">Service</label>
+              <select id="service" name="service" style="width:100%;padding:0.6rem;border-radius:8px;border:1px solid #e6e9ef;margin-top:0.35rem">
+                <option value="">Select service</option>
+                <option>Welding</option>
+                <option>Windows</option>
+                <option>Gates</option>
+                <option>Safety Doors</option>
+                <option>Sheds</option>
+                <option>Railings</option>
+                <option>Custom Fabrication</option>
+              </select>
+            </div>
+            <div class="form-row" style="margin-top:0.6rem"><label for="message">Message</label><textarea id="message" name="message" rows="4" placeholder="Project details, site location, measurements, timeline..." style="width:100%;padding:0.6rem;border-radius:8px;border:1px solid #e6e9ef;margin-top:0.35rem"></textarea></div>
+            <div class="form-row" style="margin-top:0.8rem;display:flex;gap:0.5rem">
+              <button id="submitBtn" type="submit" class="btn btn-accent ripple">Submit</button>
+              <button type="reset" class="btn btn-outline">Reset</button>
+            </div>
+            <p id="formStatus" class="form-status" aria-live="polite" style="margin-top:0.6rem;color:var(--accent)"></p>
+          </form>
+
+          <div class="business-details" style="margin-top:1rem">
+            <h4>Business Details</h4>
+            <p><strong>Address:</strong> back side of ajenta hotel godoli, satara, Maharashtra</p>
+            <p><strong>Phone:</strong> <a href="tel:+919921777302">+91 12345 67890</a></p>
+            <p><strong>Email:</strong> <a href="mailto:yashrajfabrication@gmail.com">yashrajfabrication@gmail.com</a></p>
+            <p><strong>Working Hours:</strong> tuesday - monday, 9:00 AM — 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="brand">
+          <svg class="logo-sm" width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M50 6 L86 20 L86 52 C86 72 68 88 50 94 C32 88 14 72 14 52 L14 20 Z" fill="#6b7176"/></svg>
+          <div><strong>YASHRAJ</strong><span>FABRICATION</span></div>
+        </a>
+        <p>Premium fabrication services — welding, gates, windows, safety doors, sheds and custom solutions.</p>
+      </div>
+
+      <nav class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Industrial Estate, Pune, Maharashtra</p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+911234567890">+91 12345 67890</a></p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/911234567890">WhatsApp</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:info@yashrajfabrication.com">info@yashrajfabrication.com</a></p>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Yashraj Fabrication. All Rights Reserved.</div>
+      <div>Designed & Built with care.</div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Firebase SDK (compat build) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <script>
+    /* ---------------------------
+       script.js + gallery.js combined (with Firebase Realtime DB integration)
+       --------------------------- */
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+    // --- Firebase initialization ---
+    // Replace the placeholder config below with your Firebase project's config
+    const firebaseConfig = {
+      apiKey: "AIzaSyAoRaYTM9u-NTeDJMOqfmbmvBtnQ0eTcMM",
+      authDomain: "ai-fabrication-business.firebaseapp.com",
+      databaseURL: "https://ai-fabrication-business-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "ai-fabrication-business",
+      storageBucket: "ai-fabrication-business.firebasestorage.app",
+      messagingSenderId: "486748809986",
+      appId: "1:486748809986:web:4911ab96ca5eacfd63f01b"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile nav toggle
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const nav = document.getElementById('nav');
+      mobileToggle?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+        mobileToggle.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('mobile-open');
+      });
+
+      // Smooth scroll and link active class
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const href = a.getAttribute('href');
+          if (!href || href === '#') return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({behavior:'smooth', block:'start'});
+            // update active link
+            $$('.nav-link').forEach(l => l.classList.remove('active'));
+            const navLink = Array.from($$('.nav-link')).find(l => l.getAttribute('href') === href);
+            if (navLink) navLink.classList.add('active');
+            // close mobile nav
+            nav.classList.remove('mobile-open');
+            mobileToggle?.setAttribute('aria-expanded','false');
+          }
+        });
+      });
+
+      // Back to top
+      const back = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) back.classList.add('show');
+        else back.classList.remove('show');
+      });
+      back.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+      // Animated counters
+      const counters = $$('.stat-num');
+      const runCounters = () => {
+        counters.forEach(el => {
+          const target = Number(el.dataset.target) || 0;
+          if (el.dataset.run) return;
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) {
+            el.dataset.run = '1';
+            let start = 0;
+            const duration = 1800;
+            const stepTime = Math.max(10, duration / Math.max(1,target));
+            const step = () => {
+              start += Math.ceil(target / (duration / stepTime));
+              if (start >= target) {
+                el.textContent = target + (el.dataset.target === "100" ? "%" : "");
+              } else {
+                el.textContent = start;
+                requestAnimationFrame(step);
+              }
+            };
+            requestAnimationFrame(step);
+          }
+        });
+      };
+      runCounters();
+      window.addEventListener('scroll', runCounters);
+
+      // Scroll progress
+      const progress = document.getElementById('scroll-progress');
+      const calcProgress = () => {
+        const h = document.documentElement;
+        const ratio = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+        progress.style.width = `${Math.min(100, Math.max(0, ratio*100))}%`;
+      };
+      window.addEventListener('scroll', calcProgress);
+      calcProgress();
+
+      // --- Firebase-powered form handling ---
+      const contactForm = document.getElementById('contactForm');
+      const formStatus = $('#formStatus');
+      const submitBtn = $('#submitBtn');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          // Basic validation
+          const name = $('#name').value.trim();
+          const phone = $('#phone').value.trim();
+          const email = $('#email').value.trim();
+          const service = $('#service').value;
+          const message = $('#message').value.trim();
+
+          if (!name || !phone || !email) {
+            formStatus.textContent = 'Please fill name, phone & email.';
+            formStatus.style.color = 'var(--accent)';
+            return;
+          }
+
+          // Disable submit while sending
+          submitBtn.disabled = true;
+          submitBtn.style.opacity = '0.6';
+          formStatus.textContent = 'Submitting...';
+          formStatus.style.color = 'var(--muted)';
+
+          try {
+            // Push data to Realtime Database under /contacts
+            const newRef = database.ref('contacts').push();
+            await newRef.set({
+              name,
+              phone,
+              email,
+              service,
+              message,
+              createdAt: firebase.database.ServerValue.TIMESTAMP
+            });
+
+            formStatus.textContent = 'Thanks! Your request has been received. We will contact you shortly.';
+            formStatus.style.color = '#07b16b';
+            contactForm.reset();
+          } catch (err) {
+            console.error('Firebase write error', err);
+            formStatus.textContent = 'Sorry — an error occurred. Please try again later.';
+            formStatus.style.color = '#ff6b6b';
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '';
+          }
+        });
+      }
+
+      // Close mobile menu on outside click
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.header-inner')) {
+          nav.classList.remove('mobile-open');
+          mobileToggle?.setAttribute('aria-expanded','false');
+        }
+      });
+
+      // ESC closes lightbox
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const lb = document.getElementById('lightbox');
+          if (lb && lb.classList.contains('show')) {
+            lb.classList.remove('show');
+            lb.setAttribute('aria-hidden','true');
+          }
+        }
+      });
+
+      /* Gallery: filtering & lightbox */
+      const filters = Array.from(document.querySelectorAll('.filter'));
+      const items = Array.from(document.querySelectorAll('.gallery-item'));
+      const galleryGrid = document.getElementById('gallery-grid');
+
+      filters.forEach(btn => btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.filter;
+        items.forEach(it => {
+          const match = (cat === 'all' || it.dataset.category === cat);
+          it.style.display = match ? '' : 'none';
+        });
+      }));
+
+      const lightbox = document.getElementById('lightbox');
+      const lbImage = document.querySelector('.lb-image');
+      const lbCaption = document.querySelector('.lb-caption');
+      const lbClose = document.querySelector('.lb-close');
+      const lbPrev = document.querySelector('.lb-prev');
+      const lbNext = document.querySelector('.lb-next');
+
+      let currentIndex = -1;
+      const visibleItems = () => Array.from(document.querySelectorAll('.gallery-item')).filter(i => i.style.display !== 'none');
+
+      const openLightbox = (index) => {
+        const vis = visibleItems();
+        const el = vis[index];
+        if (!el) return;
+        const img = el.querySelector('img');
+        lbImage.src = img.src;
+        lbImage.alt = img.alt || '';
+        lbCaption.textContent = el.querySelector('figcaption')?.textContent || '';
+        lightbox.classList.add('show');
+        lightbox.setAttribute('aria-hidden','false');
+        currentIndex = index;
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('show');
+        lightbox.setAttribute('aria-hidden','true');
+        currentIndex = -1;
+      };
+
+      galleryGrid?.addEventListener('click', (e) => {
+        const fig = e.target.closest('.gallery-item');
+        if (!fig) return;
+        const vis = visibleItems();
+        const index = vis.indexOf(fig);
+        openLightbox(index);
+      });
+
+      lbClose?.addEventListener('click', closeLightbox);
+      lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      lbPrev?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const vis = visibleItems();
+        if (!vis.length) return;
+        currentIndex = (currentIndex - 1 + vis.length) % vis.length;
+        openLightbox(currentIndex);
+      });
+
+      lbNext?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const vis = visibleItems();
+        if (!vis.length) return;
+        currentIndex = (currentIndex + 1) % vis.length;
+        openLightbox(currentIndex);
+      });
+    });
+  </script>
+</body>
+</html>
